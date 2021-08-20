@@ -104,7 +104,7 @@ path.current-floor {
   line-height: 44px;
   color: #635854;
 }
-.counter {
+.floor-counter {
   font-family: "Bebas Neue", sans-serif;
   color: #635854;
   font-size: 124px;
@@ -117,4 +117,102 @@ path.current-floor {
   border: none;
   padding: 16px 36px;
   cursor: pointer;
+}
+.modal {
+  opacity: 0;
+  position: fixed; /* фикс позиция поверх всего сайта */
+  left: 0; /* прикрепить к левому краю */
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.8
+  ); /* подложка полупрозрачный фоновый черный */
+  display: flex; /* родительский элемент - гибкий */
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: opacity 0.2s; /* плавное открытие */
+}
+.is-open {
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-dialog {
+  position: relative;
+  max-width: 1000px;
+  min-height: 565px;
+  background-color: #fff;
+  flex-grow: 1;
+  display: flex;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+.is-open > .modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+.modal-image {
+  background-color: #ebebeb;
+  width: 60%;
+  text-align: center;
+  padding: 50px;
+}
+.flats path {
+  opacity: 0;
+  cursor: pointer;
+}
+.flats path:hover {
+  opacity: 1;
+}
+.modal-title {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  font-family: "Bebas Neue", sans-serif;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.modal-info {
+  width: 40%;
+  padding: 50px 50px;
+}
+.flat-list {
+  padding: 0;
+  list-style: none;
+  margin-top: 55px;
+}
+.flat-item {
+  margin-bottom: 10px;
+}
+.flat-link {
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  text-decoration: none;
+}
+.flat-link:hover {
+  color: #3596f5;
+  text-decoration: underline;
+}
+.modal-alert {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  margin-top: 50px;
+}
+.modal-close-btn {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
 }
