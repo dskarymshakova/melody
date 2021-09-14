@@ -6,6 +6,9 @@ $(document).ready(function () {
     var modal = $('.modal');
     var modalCloseBtn = $('.modal-close-btn');
     var viewFlatsBtn = $('.view-flats');
+    
+    var modalPath =$("modal-image");
+    var currentFlat =1; //переменная, где хранится каждая квартира
 
     console.log("site is ready for manipulations") 
     floorPath.on('mouseover', function (){ //при наведении на этаж отображается счетчик 
@@ -45,4 +48,14 @@ $(document).ready(function () {
    function toggleModal(){
         modal.toggleClass('is-open');
     }
+
+    modalPath.on('mouseover', function (){ //при наведении на этаж отображается счетчик 
+        modalPath.removeClass("current-flat"); //удаление активного класса этажа
+        currentFlat = $(this).attr("data-flat"); //получение значения текущего этажа
+        $('[data-flat="${currentFlat}"]').addClass('current-flat');
+    });
+
+
+
+
 });
